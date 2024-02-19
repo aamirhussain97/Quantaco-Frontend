@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="login-container">
+    <div class="login-form" *ngIf="!loggedIn">
+      <h1>Login</h1>
+      <mat-form-field appearance="fill">
+        <input matInput type="text" [(ngModel)]="username" placeholder="Username">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput type="password" [(ngModel)]="password" placeholder="Password">
+      </mat-form-field>
+      <div class="button-container">
+        <button class="primary" (click)="login()">Login</button>
+      </div>
+      <!-- Display success message if it exists -->
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <!-- Display error message if it exists -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+    </div>
+
+    <div class="user-info" *ngIf="loggedIn">
+      <h1>User Information</h1>
+      <mat-form-field appearance="fill">
+        <input matInput type="text" [(ngModel)]="firstName" placeholder="First Name">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput type="text" [(ngModel)]="lastName" placeholder="Last Name">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput type="date" [(ngModel)]="dob" placeholder="Date of Birth">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput type="tel" [(ngModel)]="phoneNumber" placeholder="Phone Number">
+      </mat-form-field>
+      <div class="button-container">
+        <button class="primary" (click)="submitForm()">Submit</button>
+        <button class="warn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>
